@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../node_modules/fancybox/dist/css/jquery.fancybox.css">
+</head>
+
+<body>
+    <h4>Fancybox3示例(图片集，支持键盘方向键)</h4>
+    <p>
+        <a rel="group" href="../ch07/imges/1.jpg" title="嘿嘿">
+            <img alt="风" src="../ch07/imges/1.jpg">
+        </a>
+        <a rel="group" href="../ch07/imges/2.jpg" title="哈哈">
+            <img alt="电" src="../ch07/imges/2.jpg">
+        </a>
+        <a rel="group" href="../ch07/imges/3.jpg" title="嘻嘻">
+            <img alt="雨" src="../ch07/imges/3.jpg">
+        </a>
+    </p>
+    <script src="js/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script src="../node_modules/fancybox/dist/js/jquery.fancybox.js"></script>
+    <script>
+        $(function () {
+            $("a[rel=group]").fancybox({
+                'titlePosition': 'over',
+                'click': 'true'
+            })
+        })
+    </script>
+</body>
+
+</html>

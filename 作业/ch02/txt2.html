@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <from>
+        <select id="abc" multiple size="5px" style="width: 100px;">
+            <option  value="龅牙">龅牙</option>
+            <option  value="龅爹">龅爹</option>
+            <option  value="龅妈">龅妈</option>
+            <option  value="龅姐">龅姐</option>
+        </select>
+        <button id="btn">确定</button>
+    </from>
+    <script src="js/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script> 
+        $(function(){
+            $('#btn').click(function(){
+                if($('select option:selected').text().length==0){
+                    alert('你至少选择一个');
+                }else{
+                    alert($('select option:selected').text())
+                }
+            })
+        })
+    </script>
+</body>
+</html>

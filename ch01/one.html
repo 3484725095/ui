@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.5.1/jquery-3.5.1.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <script>
+        $(function(){
+            var len=arguments.length;
+            var result=0;
+            for(var i;i<len;i++){
+                result+=arguments[i]
+            }
+            return result
+        })
+
+        function f1(){
+            var len=arguments.length;
+            var result=0;
+            for(var i=0;i<len;i++){
+                result+=arguments[i]
+            }
+            return result;
+        }
+        
+        alert(f1(100))
+        alert(f1(200,2000))
+        alert(f1(1000,9000))
+    </script>
+</body>
+
+</html>

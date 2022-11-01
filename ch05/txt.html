@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>foot</li>
+        <li>bar</li>
+        <li>accc</li>
+        <li>abbb</li>
+    </ul>
+    <script src="js/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        $(function () {
+            $('li').each(function (index) {
+                alert(index + ':' + $(this).text());
+            })
+            var array = ["one", "two", "three"];
+            $.each(array, function (index, value) {
+                var str = "下标为：" + index;
+                str += "的数组元素是" + value;
+                alert(str)
+            })
+            //遍历所有对象
+            var obj = {
+                a: 1,
+                b: 2,
+                c: 3
+            };
+            $.each(obj, function (propertyName, propertyValue) {
+                var str = "属性名是：" + propertyName;
+                str += "属性值是：" + propertyValue;
+                alert(str)
+            })
+        })
+    </script>
+</body>
+
+</html>

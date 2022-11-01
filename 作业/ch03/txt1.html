@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select multiple size="10" id="left">
+        <option value="字段1">字段1</option>
+        <option value="字段2">字段2</option>
+        <option value="字段3">字段3</option>
+        <option value="字段4">字段4</option>
+        <option value="字段5">字段5</option>
+    </select>
+    <input type="button" value=">" id="btnright">
+    <input type="button" value="<" id="btnleft">
+    <input type="button" value=">>>" id="btnAllright">
+    <input type="button" value="<<<" id="btnAllleft">
+    <select multiple size="10" id="right">
+
+    </select>
+    <input type="button" value="up" id="up">
+    <input type="button" value="down" id="down">
+    <script src="js/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        $(function () {
+            $('#btnright').click(function () {
+                var val = $('#left option:selected').text()
+                if ($("<option>" + val + "</option>").appendTo('#right')) {
+                    $('#left option:selected').remove();
+                }
+            })
+            $('#btnleft').click(function () {
+                var val = $('#right option:selected').text()
+                if ($("<option>" + val + "</option>").appendTo('#left')) {
+                    $('#right option:selected').remove();
+                }
+            })
+            $('#btnAllright').click(function () {
+                if ($("select option:not(selected)").appendTo('#right')) {
+                    $('#left option:selected').remove();
+                }
+            })
+            $('#btnAllleft').click(function () {
+                if ($("select option:not(selected)").appendTo('#left')) {
+                    $('#right option:selected').remove();
+                }
+            })
+            $('#up').click(function () {
+                    if (null == $('#left').val()) {
+                        alert('请选择一项');
+                        return false;
+                    }
+                    //选中的索引,从0开始
+                    var optionIndex = $('#left').get(0).selectedIndex;
+                    //如果选中的不在最上面,表示可以移动
+                    if (optionIndex > 0) {
+                        $('#left option:selected').insertBefore($('#left option:selected').prev('option'));
+                    }
+                })
+                .click(function () {
+                    if (null == $('#right').val()) {
+                        alert('请选择一项');
+                        return false;
+                    }
+                    //选中的索引,从0开始
+                    var optionIndex = $('#right').get(0).selectedIndex;
+                    //如果选中的不在最上面,表示可以移动
+                    if (optionIndex > 0) {
+                        $('#right option:selected').insertBefore($('#right option:selected').prev(
+                            'option'));
+                    }
+                })
+            $('#down').click(function () {
+                    if (null == $('#left').val()) {
+                        alert('请选择一项');
+                        return false;
+                    }
+                    //索引的长度,从1开始
+                    var optionLength = $('#left')[0].options.length;
+                    //选中的索引,从0开始
+                    var optionIndex = $('#left').get(0).selectedIndex;
+                    //如果选择的不在最下面,表示可以向下
+                    if (optionIndex < (optionLength - 1)) {
+                        $('#left option:selected').insertAfter($('#left option:selected').next('option'));
+                    }
+                })
+                .click(function () {
+                    if (null == $('#right').val()) {
+                        alert('请选择一项');
+                        return false;
+                    }
+                    //索引的长度,从1开始
+                    var optionLength = $('#right')[0].options.length;
+                    //选中的索引,从0开始
+                    var optionIndex = $('#right').get(0).selectedIndex;
+                    //如果选择的不在最下面,表示可以向下
+                    if (optionIndex < (optionLength - 1)) {
+                        $('#right option:selected').insertAfter($('#right option:selected').next('option'));
+                    }
+                })
+        })
+    </script>
+</body>
+
+</html>

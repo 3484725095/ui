@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        td {
+            width: 200px;
+        }
+
+        #div {
+            width: auto;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="tab" border="1px solid black" align="center" cellpadding="0" cellspacing="0" style="text-align: center;">
+        <tr>
+            <td> <input type="checkbox" id="check">全选</td>
+            <td>商品编号</td>
+            <td>名称</td>
+            <td>价格</td>
+            <td>上货日期</td>
+            <td>是否下架</td>
+            <td>操作</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>20130001</td>
+            <td>Lenovo A820T</td>
+            <td>650.0</td>
+            <td>2013-01-07</td>
+            <td><input type="checkbox"></td>
+            <td>
+                <a href="#">删除</a>
+                <a href="#">修改</a>
+                <a href="#">详细</a>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>201300007</t>
+            <td>Aceraaa 星锐 4752G</td>
+            <td>2000.8</td>
+            <td>2013-01-02</td>
+            <td><input type="checkbox"></td>
+            <td>
+                <a href="#">删除</a>
+                <a href="#">修改</a>
+                <a href="#">详细</a>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>201300009</td>
+            <td>ZTE U880</td>
+            <td>450.0</td>
+            <td>2012-01-07</td>
+            <td><input type="checkbox"></td>
+            <td>
+                <a href="#">删除</a>
+                <a href="#">修改</a>
+                <a href="#">详细</a>
+            </td>
+        </tr>
+    </table>
+    <form>
+        <div id="div">
+            <fieldset class="fie">
+                <legend>商品详细</legend>
+                <table id="table" align="left">
+                    <tr>
+                        <td>商品编号</td>
+                        <td><input type="text" maxlength="9" name="sid" id="sid" /></td>
+                        <td>*只能输入9位的字只</td>
+                    </tr>
+                    <tr>
+                        <td>商品名称</td>
+                        <td><input type="text" maxlength="30" name="sname" id="name" /></td>
+                        <td>*长度只能是1-30位</td>
+                    </tr>
+                    <tr>
+                        <td>商品价格</td>
+                        <td><input type="text" name="price" id="price" /></td>
+                        <td>*只能输入正数,如0.98</td>
+                    </tr>
+                    <tr>
+                        <td>上货日期</td>
+                        <td><input type="date" name="date" id="date" /></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>是否下架</td>
+                        <td>
+                            <input type="radio" name="a" id="y" />是
+                            <input type="radio" name="a" id="n" />否
+                        </td>
+                        <td>*必须选择</td>
+                    </tr>
+                    <tr align="center" class="last">
+                        <td><input type="button" value="添加" id="insert"></input></td>
+                        <td><input type="button" value="修改" id="update"></input></td>
+                        <td><input type="button" value="批量删除" id="delete"></input></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </div>
+    </form>
+    <script src="js/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        $(function () {
+            $('#insert').click(function () {
+                var sid = $('#sid').val();
+                var name = $('name').val();
+                var price = $('price').val();
+                var date = $('date').val();
+                var radio = $('#y').prop('checked')
+                if (radio) {
+
+                }
+
+                $("<tr><td><input type='checkbox'/></td> <td>" + sid + "</td><td>" + name +
+                    "</td><td>" +
+                    price + "</td><td>" + date +
+                    "</td><td><input type='checkbox'></td><td><a href='#'>删除</a> <a href='#''>修改</a> <a href='#''>详细</a></td></tr>"
+                ).appendTo('#tab')
+            })
+        })
+    </script>
+</body>
+
+</html>

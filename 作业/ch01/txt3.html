@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.5.1/jquery-3.5.1.js"></script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>这里是具体的内容</td>
+        </tr>
+        <tr>
+            <td>这里是具体的内容</td>
+        </tr>
+        <tr>
+            <td>这里是具体的内容</td>
+        </tr>
+        <tr>
+            <td>这里是具体的内容</td>
+        </tr>
+        <tr>
+            <td>这里是具体的内容</td>
+        </tr>
+        <tr>
+            <td>这里是具体的内容</td>
+        </tr>
+        <tr>
+            <td>这里是具体的内容</td>
+        </tr>
+        <tr>
+            <td>这里是具体的内容</td>
+        </tr>
+        <tr>
+            <td>这里是具体的内容</td>
+        </tr>
+        <tr>
+            <td>这里是具体的内容</td>
+        </tr>
+    </table> 
+    <script>
+        $(function(){
+            $('tr').filter(function(index,ele){
+                if(index % 2 == 0){
+                    $(ele).css('background','green')
+                }
+            })
+        })
+    </script>
+</body>
+</html>
