@@ -31,7 +31,7 @@
             <td>操作</td>
         </tr>
         <tr>
-            <td><input type="checkbox"></td>
+            <td><input type="checkbox" class="checkboxs"></td>
             <td>20130001</td>
             <td>Lenovo A820T</td>
             <td>650.0</td>
@@ -44,7 +44,7 @@
             </td>
         </tr>
         <tr>
-            <td><input type="checkbox"></td>
+            <td><input type="checkbox" class="checkboxs"></td>
             <td>201300007</t>
             <td>Aceraaa 星锐 4752G</td>
             <td>2000.8</td>
@@ -57,7 +57,7 @@
             </td>
         </tr>
         <tr>
-            <td><input type="checkbox"></td>
+            <td><input type="checkbox" class="checkboxs"></td>
             <td>201300009</td>
             <td>ZTE U880</td>
             <td>450.0</td>
@@ -117,20 +117,53 @@
         $(function () {
             $('#insert').click(function () {
                 var sid = $('#sid').val();
-                var name = $('name').val();
-                var price = $('price').val();
-                var date = $('date').val();
-                var radio = $('#y').prop('checked')
-                if (radio) {
+                var name = $('#name').val();
+                var price = $('#price').val();
+                var date = $('#date').val();
+                if ($('#y').prop("checked")) {
+                    $("<tr><td><input type='checkbox' class='checkboxs'/></td> <td>" + sid +
+                        "</td><td>" +
+                        name +
+                        "</td><td>" +
+                        price + "</td><td>" + date +
+                        "</td><td><input type='checkbox' checked ></td><td><a href='#'>删除</a> <a href='#''>修改</a> <a href='#''>详细</a></td></tr>"
+                    ).appendTo('#tab')
 
+                } else {
+                    $("<tr><td><input type='checkbox' class='checkboxs'/></td> <td>" + sid +
+                        "</td><td>" +
+                        name +
+                        "</td><td>" +
+                        price + "</td><td>" + date +
+                        "</td><td><input type='checkbox'></td><td><a href='#'>删除</a> <a href='#''>修改</a> <a href='#''>详细</a></td></tr>"
+                    ).appendTo('#tab')
                 }
-
-                $("<tr><td><input type='checkbox'/></td> <td>" + sid + "</td><td>" + name +
-                    "</td><td>" +
-                    price + "</td><td>" + date +
-                    "</td><td><input type='checkbox'></td><td><a href='#'>删除</a> <a href='#''>修改</a> <a href='#''>详细</a></td></tr>"
-                ).appendTo('#tab')
             })
+            $('#check').click(function () {
+                if (this.checked) {
+                    $('#tab .checkboxs:checkbox').prop("checked", true)
+                } else {
+                    // $('#tab :checkbox').prop("checked", false)
+                    $("#tab .checkboxs:checkbox").prop("checked", false);
+                }
+            })
+            $('#delete').click(function () {
+                //判断如果没选中 不让删除
+                if ($('#tab .checkboxs:checked').length == 0) {
+                    alert("请选择要删除的内容!");
+                    return;
+                }
+                if ($('.checkboxs:checked').length > 0) {
+                    if (confirm('是否要批量删除')) {
+                        $('.checkboxs:checked').each(function (index, value) {
+                            $(value).closest('tr').remove();
+                        })
+                    }
+                }
+            })
+        })
+        $('#update').click(function () {
+            
         })
     </script>
 </body>

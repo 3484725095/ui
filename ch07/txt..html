@@ -12,13 +12,13 @@
 <body>
     <h4>Fancybox3示例(图片集，支持键盘方向键)</h4>
     <p>
-        <a rel="group" href="../ch07/imges/1.jpg" title="嘿嘿">
+        <a rel="group" class="aaa" href="../ch07/imges/1.jpg" title="eeee">
             <img alt="风" src="../ch07/imges/1.jpg">
         </a>
-        <a rel="group" href="../ch07/imges/2.jpg" title="哈哈">
+        <a rel="group" class="aaa" href="../ch07/imges/2.jpg" title="hhhh">
             <img alt="电" src="../ch07/imges/2.jpg">
         </a>
-        <a rel="group" href="../ch07/imges/3.jpg" title="嘻嘻">
+        <a rel="group" class="aaa" href="../ch07/imges/3.jpg" title="哈哈哈">
             <img alt="雨" src="../ch07/imges/3.jpg">
         </a>
     </p>
@@ -26,9 +26,8 @@
     <script src="../node_modules/fancybox/dist/js/jquery.fancybox.js"></script>
     <script>
         $(function () {
-            $("a[rel=group]").fancybox({
-                'titlePosition': 'over',
-                'click': 'true'
+            $(".aaa").fancybox({
+
             })
         })
     </script>
